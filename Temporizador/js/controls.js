@@ -1,4 +1,9 @@
-export function Controls({ buttonPause, buttonPlay, buttonSet, buttonStop }) {
+export function Controls({
+  buttonPause,
+  buttonPlay,
+  buttonSet,
+  buttonStop,
+}) {
   function resetControls() {
     buttonPlay.classList.remove(`hide`)
     buttonPause.classList.add(`hide`)
