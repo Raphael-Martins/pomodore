@@ -3,6 +3,8 @@ export function Controls({
   buttonPlay,
   buttonSet,
   buttonStop,
+  buttonSoundOn,
+  buttonSoundOff,
 }) {
   function resetControls() {
     buttonPlay.classList.remove(`hide`)
@@ -20,5 +22,20 @@ export function Controls({
     buttonPause.classList.add(`hide`)
     buttonPlay.classList.remove(`hide`)
   }
-  return { resetControls, buttonPauseClick, buttonPauseClick, buttonPlayClick }
+  function soundOn() {
+    buttonSoundOn.classList.add(`hide`)
+    buttonSoundOff.classList.remove(`hide`)
+  }
+  function soundOff() {
+    buttonSoundOff.classList.add(`hide`)
+    buttonSoundOn.classList.remove(`hide`)
+  }
+  return {
+    resetControls,
+    buttonPauseClick,
+    buttonPauseClick,
+    buttonPlayClick,
+    soundOn,
+    soundOff,
+  }
 }

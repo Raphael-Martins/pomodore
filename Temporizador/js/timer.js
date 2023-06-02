@@ -1,13 +1,17 @@
+import Sound from "./sound.js"
+const sound = Sound()
+
 export function Timer({ minutesDisplay, secondsDisplay, resetControls }) {
   let timerTimeOut
   let minutes = Number(minutesDisplay.textContent)
-/*eu passei essa funcao aqui pra dentro do timer e chamei ela no button set, isso resolveu o problema de setar pro valor do html quando executava reset timer, sem eu ter que 
+  /*eu passei essa funcao aqui pra dentro do timer e chamei ela no button set, isso resolveu o problema de setar pro valor do html quando executava reset timer, sem eu ter que 
 fazer varios codigos como o professor fez no buttonSet
 
 aqui dentro ela fara a atualizacao dos minutes, algo que so uso aqui, e todas as funcoes que usarem minutes ja vao estar atualizadas 
 
 ps:. isso me fez muita raiva*/
   function promptTime() {
+    sound.buttonPress()
     minutes = prompt(`Quantos minutos?`) || minutes
     updateTimerDisplay(minutes, 0)
   }
@@ -32,6 +36,7 @@ ps:. isso me fez muita raiva*/
       if (isFinished) {
         resetControls()
         updateTimerDisplay()
+        sound.timerEnd()
         return
       }
 
